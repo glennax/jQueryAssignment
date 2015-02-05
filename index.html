@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,600' rel='stylesheet' type='text/css'>
+	<title>Form Validation Assignment</title>
+</head>
+<body>
+	<section class="form">
+		<form action="index.html" method="get" id="form">
+			<ul>
+				<li>
+					<label for="first_name">What's your first name?</label>
+					<input type="text" id="first_name" name="First Name" />
+				</li>
+
+				<li>
+					<label for="last_name">What's your last name?</label>
+					<input type="text" id="last_name" name="Last Name" />
+				</li>
+
+				<li>
+					<label for="email_address">What's the best email address to reach you?</label>
+					<input type="email" id="email_address" name="Email" />
+				</li>
+
+				<li>
+					<label for="home_address">What's your home address?</label>
+					<input type="text" id="home_address" name="Address" />
+			    </li>
+
+			    <li>
+			    	<label for="phone_number">What's your phone number?</label>
+					<input type="text" id="phone_number" name="Phone Number" />
+			    </li>
+
+			    <li>
+			        <input type="submit" id="submit" name="submit" value="submit" />
+		    	</li>
+	    	</ul>
+    	</form>
+	</section>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="formValidation.js"></script>
+</body>
+</html>
