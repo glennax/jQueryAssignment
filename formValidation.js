@@ -3,46 +3,50 @@ $(document).ready(function(){
 	//validate on submit
 	$("#form").submit(
 		function(event){
-			var isValid = true;
+			var first_nameValid = true;
+			var last_nameValid = true;
+			var home_addressValid = true;
+			var phone_numberValid = true;
+			var email_addressValid = true;
 			// validate first_name field
 			var first_name = $("#first_name").val();
-			
 			if(first_name.length <= 0){
 				$("#first_name").next().text("This field is required.");
 				$('#first_name').css('border-color', 'red');
-				isValid = false;
+				first_nameValid = false;
 			}else{
 				$("#first_name").val(first_name);
 				$("#first_name").css('border-color', '');
-				$("#first_name").next().text("");}
+				$("#first_name").next().text("");
+			};
 
 			// validate last_name field
 			var last_name = $("#last_name").val();
 			if(last_name.length <= 0){
 				$("#last_name").next().text("This field is required.");
 				$("#last_name").css('border-color', 'red');
-				isValid = false;
+				last_nameValid = false;
 			}else{
 				$("#last_name").val(last_name);
 				$("#last_name").css('border-color', '');
-				$("#last_name").next().text("");}
+				$("#last_name").next().text("");
+			};
 
 			// validate home_address field
 			var home_address = $("#home_address").val();
 			if(home_address.length <= 0){
 				$("#home_address").next().text("This field is required.");
 				$('#home_address').css('border-color', 'red');
-				isValid = false;
+				home_addressValid = false;
 			}else{
 				$("#home_address").val(home_address);
 				$("#home_address").css('border-color', '');
-				$("#home_address").next().text("");}
+				$("#home_address").next().text("");
+			};
 			
 			// validate phone_number field
 			var phone_number= $("#phone_number").val();
-			// regex for numbers only
-			var filter = /^[0-9]+$/;
-			if(filter.test(phone_number) && phone_number.length != 0){
+  			if(isNaN(phone_number) == false){
 				$('#phone_number').val( 
 					"("+
 					phone_number[0] + 
@@ -59,11 +63,12 @@ $(document).ready(function(){
 					phone_number[9] )
 				$('#phone_number').css('border-color', '');
 			}else{
-				$("#phone_number").next().text("Non-numerical character(s) is found.");
-				$('#phone_number').css('border-color', 'red');
-				isValid == false;
-			}
+				$("#phone_number").css('border-color', 'red');
+				$("#phone_number").next().text("Not a number.");
+				phone_numberValid == false;
+			};
 
+			
 			// validate email_address field
 			var email_address = $("#email_address").val();
 			if(email_address.indexOf("@") > -1){
@@ -73,10 +78,14 @@ $(document).ready(function(){
 			}else{
 				$("#email_address").next().text("Not a valid email address.");
 				$("#email_address").css('border-color', 'red');
-				isValid == false;
-			}
+				email_addressValid == false;
+			};
 
-			if(isValid == false) {
+			if(!first_nameValid || 
+			   !last_nameValid ||
+			   !home_addressValid ||
+			   !phone_numberValid ||
+			   !email_addressValid ) {
 				event.preventDefault(); 
 			}
 		});//on submit
